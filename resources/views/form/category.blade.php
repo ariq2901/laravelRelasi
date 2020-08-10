@@ -13,7 +13,12 @@
             @csrf
             <div class="form-group">
               <label for="Name">Category Name</label>
-                  <input type="text" class="form-control" name="name" id="Name" placeholder="makanan...">
+                  <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="Name" placeholder="makanan...">
+                  @error('name')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
                 <button type="submit" class="btn btn-primary float-right">Submit</button>
                 <a href="/" class="btn btn-danger float-right mr-2">Cancel</a>

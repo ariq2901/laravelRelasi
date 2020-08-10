@@ -25,12 +25,12 @@ class AriqController extends Controller
     {   
         $request->validate([
             'name' => 'required',
-            'category_id' => 'required',
             'merk' => 'required',
+            'category' => 'required',
             'harga_beli' => 'required',
             'harga_jual' => 'required',
             'stock' => 'required',
-            'disc' => 'required'
+            'disc' => 'required',
         ]);
 
         $product = new Product();
