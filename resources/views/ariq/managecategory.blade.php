@@ -7,6 +7,13 @@
   <div class="row h-100 justify-content-center mt-4">
     <div class="col col-6">
       <a href="/form-category" class="btn btn-primary mb-3">Add new category</a>
+      
+      @if (session('status'))
+          <div class="alert alert-success">
+            {{ session('status') }}
+          </div>
+      @endif
+
       <table class="table table-hovered table-striped">
         <thead class="table-info text-secondary">
           <tr>

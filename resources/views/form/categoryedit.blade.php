@@ -14,7 +14,12 @@
             @method('patch')
             <div class="form-group">
               <label for="name">Category Name</label>
-              <input type="text" class="form-control" name="name" id="name" value="{{ $category->name }}">
+              <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{ $category->name }}">
+              @error('name')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+              @enderror
             </div>
             <button type="submit" class="btn btn-primary float-right">Submit</button>
             <a href="/" class="btn btn-danger float-right mr-3">Cancel</a>

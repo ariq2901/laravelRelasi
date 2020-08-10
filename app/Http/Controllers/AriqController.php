@@ -87,6 +87,16 @@ class AriqController extends Controller
 
     public function update(Product $product, Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'merk' => 'required',
+            'category' => 'required',
+            'harga_beli' => 'required',
+            'harga_jual' => 'required',
+            'stock' => 'required',
+            'disc' => 'required',
+        ]);
+
         Product::where('id', $product->id)
                 ->update([
                     'name' => $request->name,
@@ -103,6 +113,10 @@ class AriqController extends Controller
 
     public function categoryUpdate(Category $category, Request $request)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
         Category::where('id', $category->id)
                 ->update([
                     'name' => $request->name,
